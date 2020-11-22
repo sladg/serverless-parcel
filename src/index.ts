@@ -5,14 +5,11 @@ import { Options } from "serverless";
 import { FunctionsSls, InitialParcelOptions } from "./types";
 
 const config: InitialParcelOptions = {
-  defaultConfig: require.resolve("@parcel/config-default"),
   mode: "production",
   defaultEngines: { node: "12" },
-  distDir: undefined,
-  entries: undefined,
 };
 
-export class ServerlessPluginParcel {
+class ParcelSlsPlugin {
   readonly serverlessFolder = ".serverless";
   readonly buildFolder = ".serverless_parcel";
   servicePath: string;
@@ -41,12 +38,14 @@ export class ServerlessPluginParcel {
   async bundle() {
     this.serverless.cli.log("[SLS Parcel2]: bundling parcel entries...");
 
-    const parcelOptions = this.serverless.service.custom.parcel.options;
+    const parcelOptions = this.serverless.service.custom?.parcel?.options;
 
     for (const [key, value] of Object.entries(this.functions)) {
       // @NOTE: replaces handler path with extension
       const method = extname(value.handler);
       const entry = value.handler.replace(method, ".[jt]s");
+
+      console.log({ entry });
 
       // @NOTE: output location
       const outPath = join(this.buildPath, dirname(entry));
@@ -97,4 +96,4 @@ export class ServerlessPluginParcel {
   }
 }
 
-export default ServerlessPluginParcel;
+module.exports = ParcelSlsPlugin;
