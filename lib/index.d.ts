@@ -1,6 +1,6 @@
 import { Options } from "serverless";
 import { FunctionsSls } from "./types";
-declare class ServerlessPluginParcel {
+export declare class ServerlessPluginParcel {
     readonly serverlessFolder = ".serverless";
     readonly buildFolder = ".serverless_parcel";
     servicePath: string;

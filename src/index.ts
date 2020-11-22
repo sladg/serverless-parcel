@@ -12,7 +12,7 @@ const config: InitialParcelOptions = {
   entries: undefined,
 };
 
-class ServerlessPluginParcel {
+export class ServerlessPluginParcel {
   readonly serverlessFolder = ".serverless";
   readonly buildFolder = ".serverless_parcel";
   servicePath: string;
