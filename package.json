@@ -1,27 +1,29 @@
 {
-  "name": "serverless-parcel",
-  "version": "1.0.4",
-  "main": "index.js",
+  "name": "serverless-parcel-v2",
+  "version": "1.0.0",
   "description": "A Serverless plugin to bundle your functions and assets with Parcel Bundler",
-  "license": "MIT",
-  "author": {
-    "name": "John Agan",
-    "email": "johnagan@gmail.com"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/johnagan/serverless-parcel.git"
+    "url": "git+https://github.com/sladg/serverless-parcel"
   },
-  "keywords": [
-    "serverless",
-    "serverless plugin",
-    "typescript",
-    "babel",
-    "parcel",
-    "aws lambda"
-  ],
+  "license": "MIT",
+  "author": {
+    "name": "Jan Soukup",
+    "email": "jan@ssoukup.com"
+  },
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
   "dependencies": {
-    "fs-extra": "^7.0.1",
-    "parcel-bundler": "^1.10.3"
+    "@parcel/config-default": "^2.0.0-beta.1",
+    "@parcel/core": "^2.0.0-beta.1",
+    "fs-extra": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.4",
+    "@types/serverless": "^1.78.10",
+    "typescript": "^4.1.2"
   }
 }
